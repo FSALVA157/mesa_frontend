@@ -1,38 +1,39 @@
-<body>
-    <div class="wrapper">
-        <app-header></app-header>
-        <div class="content-wrapper">
-            <app-breadcrumb></app-breadcrumb>
+<div class="wrapper">
+    <mat-drawer-container class="example-container">
+        <mat-drawer opened="true" mode='side' #drawer>I'm a drawer
+            <div class="col-4">
+                <app-sidebar></app-sidebar>
+            </div>
 
-            <!-- Main content -->
-            <section class="content">
+        </mat-drawer>
+        <mat-drawer-content>
+            <button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button>
+            <app-header></app-header>
+            <div class="row">
 
-                <!-- Default box -->
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Judiciales - </h3>
+                <div class="col-8">
+                    <div class="content-wrapper">
+                        <section class="content-header">
+                            <div class="container-fluid">
+                                <app-breadcrumb></app-breadcrumb>
+                            </div>
+                        </section>
 
+                        <!-- Main content -->
+                        <section class="content">
+
+                            <router-outlet></router-outlet>
+
+                        </section>
 
                     </div>
-                    <div class="card-body">
-                        <router-outlet></router-outlet>
-
-                    </div>
-                    <!-- /.card-body -->
-                    <div class="card-footer">
-                        El Footer...
-                    </div>
-                    <!-- /.card-footer-->
                 </div>
-                <!-- /.card -->
+            </div>
+        </mat-drawer-content>
+    </mat-drawer-container>
 
-            </section>
-            <!-- /.content -->
-        </div>
-        <!-- /.content-wrapper -->
 
-        <app-sidebar></app-sidebar>
-        <app-footer></app-footer>
-    </div>
 
-</body>
+
+    <app-footer></app-footer>
+</div>
